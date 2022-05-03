@@ -1,21 +1,9 @@
 import {activity} from "./src/factories/Activity";
 import {flight} from "./src/factories/Flight";
 import {user} from "./src/factories/User";
-import { sampleSize } from 'lodash';
 import fs, { readFileSync } from "fs"
 import Rand from 'rand-seed'
-
-export const randomIntBetween = (minInclusive: number, maxNotInclusive: number) => {
-    return Math.floor(Math.random() * (maxNotInclusive - minInclusive) + minInclusive);
-};
-
-export function randomElement<T>(elements: Array<T>): T {
-    return elements[randomIntBetween(0, elements.length)];
-}
-
-export function oneOrMoreElements<T>(elements: Array<T>): T[] {
-    return sampleSize(elements, randomIntBetween(1, elements.length));
-}
+import {oneOrMoreElements, randomElement} from "./src/util";
 
 const writeDataToFile = async (filename: string, data: Array<object>) => {
     fs.writeFile("./data/" + filename, JSON.stringify(data), (err) => {

@@ -1,11 +1,15 @@
 import express from 'express'
 import { fileHandler } from "./src/fileHandler";
-const app = express()
+import { User } from "./src/types";
+import {randomElement} from "./src/util";
+const app = express();
 
 const PORT = 3000;
 
-app.get('/',  (req, res) => {
-    res.send('Hello World')
+app.get('/me',  async (req, res) => {
+    const json = await fileHandler("./data/users.json")
+    const users = JSON.parse(json) as User[]
+    res.send(randomElement(users))
 })
 
 app.get('/users', async (req, res) => {
