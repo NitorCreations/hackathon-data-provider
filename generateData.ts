@@ -23,7 +23,7 @@ const toFlights = ["AYY666", "AYY1337"].map(n => flight({ name: n }))
 const fromFlights = ["AYY-LMAO", "ASDASD"].map(n => flight({ name: n }))
 
 const users = Array.from({ length: 20 }).map((_, i) => user({
-    activityIds: oneOrMoreElements(activities).map(a => a.id),
+    activityId: randomElement(activities).id,
     toFlightId: randomElement(toFlights).id,
     fromFlightId: randomElement(fromFlights).id,
     name: userNames[i].name,

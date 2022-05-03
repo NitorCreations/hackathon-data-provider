@@ -5,7 +5,7 @@ export interface User {
     imageUrl: string;
     toFlightId: Flight['id'];
     fromFlightId: Flight['id'];
-    activityIds: Array<Activity['id']>;
+    activityId: Activity['id'];
 }
 
 export interface Activity {

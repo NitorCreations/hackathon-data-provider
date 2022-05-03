@@ -8,6 +8,6 @@ export const user = (partial: Partial<User>): User => ({
     fromFlightId: '',
     toFlightId: '',
     imageUrl: "www.foo.jpg",
-    activityIds: [],
+    activityId: '',
     ...partial
 })
