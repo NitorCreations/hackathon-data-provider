@@ -631,6 +631,11 @@ qs@6.10.3:
   dependencies:
     side-channel "^1.0.4"
 
+rand-seed@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/rand-seed/-/rand-seed-1.0.1.tgz#f48c134890e0bc3725c5b6c99bc8a53fba8e0e9b"
+  integrity sha512-g7uUh6C01OTozmt/ZqmzY8dTPW06je4aEiVp/8Hv213vMySW4usQFMvNiaDp5Vw0i7oZYl0zpao2YuUvvSjIkA==
+
 range-parser@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"

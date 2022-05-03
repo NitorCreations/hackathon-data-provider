@@ -2,7 +2,8 @@ import {activity} from "./src/factories/Activity";
 import {flight} from "./src/factories/Flight";
 import {user} from "./src/factories/User";
 import { sampleSize } from 'lodash';
-import fs from "fs"
+import fs, { readFileSync } from "fs"
+import Rand from 'rand-seed'
 
 export const randomIntBetween = (minInclusive: number, maxNotInclusive: number) => {
     return Math.floor(Math.random() * (maxNotInclusive - minInclusive) + minInclusive);
@@ -24,6 +25,13 @@ const writeDataToFile = async (filename: string, data: Array<object>) => {
         console.log("wrote", filename)
     })
 }
+
+const rand = new Rand((process.env.SEED as string|undefined) || 'gr8');
+
+const userNames = readFileSync('random-names/users.txt').toString('utf-8').split('\n').map(row => {
+    const split = row.split(',')
+    return {email:split[0], name:split[1]}
+}).filter(x => rand.next()>0.5)
 
 const activities = ["Poroja", "Kelkkoja", "Suksia"].map(n => activity({ name: n }))
 const toFlights = ["AYY666", "AYY1337"].map(n => flight({ name: n }))
