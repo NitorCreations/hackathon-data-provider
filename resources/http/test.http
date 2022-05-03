@@ -15,3 +15,7 @@ GET http://localhost:3000/fromFlights
 ###
 
 GET http://localhost:3000/toFlights
+
+###
+
+GET http://localhost:3000/coordinates

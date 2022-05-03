@@ -17,3 +17,8 @@ export interface Flight {
     id: string;
     name: string;
 }
+
+export interface Coordinates {
+    lat: number;
+    long: number;
+}
