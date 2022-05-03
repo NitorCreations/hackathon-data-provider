@@ -1,7 +1,10 @@
 import { sampleSize } from 'lodash';
+import Rand from 'rand-seed'
+
+export const rand = new Rand((process.env.SEED as string|undefined) || 'gr8');
 
 const randomIntBetween = (minInclusive: number, maxNotInclusive: number) => {
-    return Math.floor(Math.random() * (maxNotInclusive - minInclusive) + minInclusive);
+    return Math.floor(rand.next() * (maxNotInclusive - minInclusive) + minInclusive);
 };
 
 export function randomElement<T>(elements: Array<T>): T {

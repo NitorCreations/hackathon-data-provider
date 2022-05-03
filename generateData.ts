@@ -2,8 +2,7 @@ import {activity} from "./src/factories/Activity";
 import {flight} from "./src/factories/Flight";
 import {user} from "./src/factories/User";
 import fs, { readFileSync } from "fs"
-import Rand from 'rand-seed'
-import {oneOrMoreElements, randomElement} from "./src/util";
+import {oneOrMoreElements, randomElement, rand} from "./src/util";
 
 const writeDataToFile = async (filename: string, data: Array<object>) => {
     fs.writeFile("./data/" + filename, JSON.stringify(data), (err) => {
@@ -13,8 +12,6 @@ const writeDataToFile = async (filename: string, data: Array<object>) => {
         console.log("wrote", filename)
     })
 }
-
-const rand = new Rand((process.env.SEED as string|undefined) || 'gr8');
 
 const userNames = readFileSync('random-names/users.txt').toString('utf-8').split('\n').map(row => {
     const split = row.split(',')
@@ -29,7 +26,8 @@ const users = Array.from({ length: 20 }).map((_, i) => user({
     activityIds: oneOrMoreElements(activities).map(a => a.id),
     toFlightId: randomElement(toFlights).id,
     fromFlightId: randomElement(fromFlights).id,
-    name: "Käyttäjä " + i
+    name: userNames[i].name,
+    email: userNames[i].email
 }))
 
 Promise.all([
