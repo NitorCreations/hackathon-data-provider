@@ -1,7 +1,8 @@
 import express from 'express'
+import Rand from 'rand-seed';
 import { fileHandler } from "./src/fileHandler";
 import { User } from "./src/types";
-import {randomElement} from "./src/util";
+import {randomElementSeed} from "./src/util";
 const app = express();
 
 const PORT = 3000;
@@ -9,7 +10,8 @@ const PORT = 3000;
 app.get('/me',  async (req, res) => {
     const json = await fileHandler("./data/users.json")
     const users: User[] = JSON.parse(json)
-    res.send(randomElement(users))
+    const seed = new Rand(req.header['seed'] || 'drWho')
+    res.send(randomElementSeed(seed, users))
 })
 
 app.get('/users', async (req, res) => {
