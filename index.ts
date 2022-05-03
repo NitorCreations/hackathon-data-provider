@@ -1,5 +1,5 @@
 import express from 'express'
-import {user} from "./src/factories/User";
+import { user } from "./src/factories/User";
 const app = express()
 
 const PORT = 3000;
