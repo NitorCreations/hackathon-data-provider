@@ -35,6 +35,7 @@ export class HackathlonDataStack extends Stack {
       publicLoadBalancer: true,
       domainName: 'hackathlon.' + zone.zoneName,
       domainZone: zone,
+      redirectHTTP: true,
       protocol: ApplicationProtocol.HTTPS
     });
   }
