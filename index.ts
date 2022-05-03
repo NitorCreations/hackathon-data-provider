@@ -11,7 +11,7 @@ const PORT = 3000;
 app.get('/me',  async (req, res) => {
     const json = await fileHandler("./data/users.json")
     const users: User[] = JSON.parse(json)
-    const seed = new Rand(req.header['seed'] || 'drWho')
+    const seed = new Rand(req.headers['seed'] as string || 'drWho')
     res.send(randomElementSeed(seed, users))
 })
 
