@@ -18,9 +18,9 @@ const userNames = readFileSync('random-names/users.txt').toString('utf-8').split
     return {email:split[0], name:split[1]}
 }).filter(x => rand.next()>0.5)
 
-const activities = ["Poroja", "Kelkkoja", "Suksia"].map(n => activity({ name: n }))
-const toFlights = ["AYY666", "AYY1337"].map(n => flight({ name: n }))
-const fromFlights = ["AYY-LMAO", "ASDASD"].map(n => flight({ name: n }))
+const activities = ["Visit to Reindeer Farm", "Snowmobile Safari", "Cross Country Skiing", "Downhill Skiing"].map(n => activity({ name: n }))
+const toFlights = ["AYY-666", "AYY-1337"].map(n => flight({ name: n }))
+const fromFlights = ["AYY-FOO", "AYY-BAR"].map(n => flight({ name: n }))
 
 const users = Array.from({ length: 20 }).map((_, i) => user({
     activityId: randomElement(activities).id,
