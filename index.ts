@@ -8,7 +8,7 @@ const PORT = 3000;
 
 app.get('/me',  async (req, res) => {
     const json = await fileHandler("./data/users.json")
-    const users = JSON.parse(json) as User[]
+    const users: User[] = JSON.parse(json)
     res.send(randomElement(users))
 })
 
