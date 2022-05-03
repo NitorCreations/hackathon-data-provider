@@ -2,7 +2,7 @@ import {activity} from "./src/factories/Activity";
 import {flight} from "./src/factories/Flight";
 import {user} from "./src/factories/User";
 import fs, { readFileSync } from "fs"
-import {oneOrMoreElements, randomElement, rand} from "./src/util";
+import {randomElement, rand} from "./src/util";
 
 const writeDataToFile = async (filename: string, data: Array<object>) => {
     fs.writeFile("./data/" + filename, JSON.stringify(data), (err) => {
