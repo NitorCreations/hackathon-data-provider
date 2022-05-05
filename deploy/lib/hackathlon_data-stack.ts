@@ -25,13 +25,13 @@ export class HackathlonDataStack extends Stack {
     // Create a load-balanced Fargate service and make it public
     new ecs_patterns.ApplicationLoadBalancedFargateService(this, "HackathlonFargateService", {
       cluster: cluster,
-      cpu: 512,
-      desiredCount: 1,
+      cpu: 2048,
+      desiredCount: 2,
       taskImageOptions: {
         image: ecs.ContainerImage.fromAsset('..'),
         containerPort: 3000
       },
-      memoryLimitMiB: 2048,
+      memoryLimitMiB: 4096,
       publicLoadBalancer: true,
       domainName: 'hackathlon.' + zone.zoneName,
       domainZone: zone,
