@@ -2,8 +2,11 @@
 
 ## Start the API
 
+Use either npm or yarn:
+
 ```bash
 npm install
+npm run generate
 npm run start
 ```
 
@@ -14,9 +17,11 @@ Using Visual Studio Code + REST Client plugin (humao.rest-client):
 * Open [test.http](resources/http/test.http)
 * Run requests by pressing Ctrl + Alt + R
 
+## List of apis
 
+They are in `index.ts`
 
-# Devel stuff
+# Deploy stuff
 
 ## Buidding OCI/docker image
 
