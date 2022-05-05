@@ -14,6 +14,10 @@ function setHeaders(res : express.Response) {
     res.header("Cache-Control", "private, max-age=0")
 }
 
+app.get("/", (req, res) => {
+    res.sendStatus(200)
+})
+
 app.get('/me',  async (req, res) => {
     const json = await fileHandler("./data/users.json")
     setHeaders(res)
